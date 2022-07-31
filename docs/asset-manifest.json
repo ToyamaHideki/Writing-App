@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Writing-App/static/css/main.df67168c.css",
+    "main.js": "/Writing-App/static/js/main.0b0f588b.js",
+    "static/media/bg-img.jpeg": "/Writing-App/static/media/bg-img.306033dbd4fa34be314d.jpeg",
+    "index.html": "/Writing-App/index.html",
+    "main.df67168c.css.map": "/Writing-App/static/css/main.df67168c.css.map",
+    "main.0b0f588b.js.map": "/Writing-App/static/js/main.0b0f588b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.df67168c.css",
+    "static/js/main.0b0f588b.js"
+  ]
+}

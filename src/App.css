@@ -1,38 +1,164 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: 'Uchen', 'Noto Serif JP', serif;
+  font-weight: 600;
+}
+
+body {
+  position: relative;
+}
+
 .App {
-  text-align: center;
+  width: 100%;
+  height: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.bgImage {
+  height: auto;
   min-height: 100vh;
+  background: url(./images/bg-img.jpeg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+  overflow: hidden; /*ブラー効果でボヤけた部分を非表示*/
+}
+
+.bgImage:before {
+  content: "";
+  background: inherit; /*.bgImageで設定した背景画像を継承する*/
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+  position: absolute;
+  /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1; /*重なり順序を一番下にしておく*/
+}
+
+textarea {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  word-spacing: -2px;
+  line-height: 0.8em;
+  width: 50%;
+  padding: 10px;
+  max-width: 100%;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+}
+
+#write{
+    resize: horizontal;
+    font-size: 20px;  
+    height: 70vh;
+  }
+
+.item {
+  color: white;
+  font-weight: 600;
+  margin-top: 9rem;
+  margin-left: 5%;
+}
+
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.767);
+  width: 90%;
+  line-height: 1;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 100;
+  padding: 0.4rem;
+  border-radius: 10px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.title{
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.956);
+  text-shadow:3px 5px 2px #9d8a8a;
+  transform: translateY(-20px);
+}
+
+/* ====================   download button   ========================= */
+/* From uiverse.io by @barisdogansutcu */
+.download-button {
+  
+  position: relative;
+  border-width: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  z-index: 1;
+ }
+ 
+ .download-button .docs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 4px;
+  z-index: 1;
+  background-color: #242a35;
+  border: solid 1px #e8e8e82d;
+  transition: all .5s cubic-bezier(0.77, 0, 0.175, 1);
+ }
+ 
+ .download-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+ }
+ 
+ .download {
+  cursor: pointer;
+  position: absolute;
+  inset: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  max-width: 90%;
+  margin: 0 auto;
+  z-index: -1;
+  border-radius: 4px;
+  transform: translateY(0%);
+  background-color: #01e056;
+  border: solid 1px #01e0572d;
+  transition: all .5s cubic-bezier(0.77, 0, 0.175, 1);
+ }
+ 
+ .download-button:hover .download {
+  transform: translateY(100%)
+ }
+ 
+ .download svg polyline,.download svg line {
+  animation: docs 1s infinite;
+ }
+ 
+ @keyframes docs {
+  0% {
+   transform: translateY(0%);
   }
-  to {
-    transform: rotate(360deg);
+ 
+  50% {
+   transform: translateY(-15%);
   }
-}
+ 
+  100% {
+   transform: translateY(0%);
+  }
+ }
